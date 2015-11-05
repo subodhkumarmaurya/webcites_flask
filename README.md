@@ -8,3 +8,6 @@ To do:
 - improve geocoding function 
 - code optimization of ADS scraping
 - error handling for first author institutions for which the geocode is not found. 
+
+
+![alt tag](http://dotastronomy.com/wp-content/uploads/2013/01/dotlogo_black.png)
