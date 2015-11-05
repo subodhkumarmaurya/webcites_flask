@@ -9,5 +9,5 @@ To do:
 - code optimization of ADS scraping
 - error handling for first author institutions for which the geocode is not found. 
 
-<img src="http://dotastronomy.com/wp-content/uploads/2013/01/dotlogo_black.png" width="15%">
+Made at <img src="http://dotastronomy.com/wp-content/uploads/2013/01/dotlogo_black.png" width="15%">
 
