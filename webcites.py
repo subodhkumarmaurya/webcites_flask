@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
 	return render_template('index.html')
-	
+
 @app.route('/locations/<bibcode>/')
 def hello_world(bibcode):
 	#bibcode = raw_input('What is the bibcode of the paper you would like to see the citation web for? :')
@@ -42,7 +42,8 @@ def hello_world(bibcode):
 	# cite_ai_loc = [x for x in cite_ai_loc if x is not None]
 	# print('citation coauthor institutions', cite_ai_loc)
 	#return "Hello world"
-	return jsonify({'first_author':paper_fai, 'coauthors':paper_ai, 'citation_first_author':cite_fai, 'citation_coauthors':cite_ai})
+	#'coauthors':paper_ai, 'citation_first_author':cite_fai, 'citation_coauthors':cite_ai})
+	return jsonify({'coords':[51.75952470000001, -1.2584172], 'coa_coords':[[47.3768866, 8.541694], [32.8797081, -117.2350537],[44.975331, -93.23461309999999]]})
 
 
 if __name__ == '__main__':

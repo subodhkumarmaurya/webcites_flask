@@ -25,14 +25,14 @@
         alert('going ' + url)
         $.getJSON(url, function(data) {
 
-            alert(JSON.stringify(data))
+            alert(JSON.stringify(data["coa_coords"]))
 
-            var marker = L.marker([51.75952470000001, -1.2584172]).addTo(map);
+            var marker = L.marker(data["coords"]).addTo(map);
                 marker.bindPopup("This is the first author's institution").togglePopup();
             
-            var coauthor1 = L.marker([47.3768866, 8.541694]).togglePopup('This is a co-author institution.'),
-                coauthor2 = L.marker([32.8797081, -117.2350537]).togglePopup('This is a co-author instituion')
-                coauthor3 = L.marker([44.975331, -93.23461309999999]).togglePopup('This is a co-author instituion')
+            var coauthor1 = L.marker(data["coa_coords"][0]).togglePopup('This is a co-author institution.'),
+                coauthor2 = L.marker(data["coa_coords"][1]).togglePopup('This is a co-author instituion')
+                coauthor3 = L.marker(data["coa_coords"][2]).togglePopup('This is a co-author instituion')
             var coauthors = L.layerGroup([coauthor1, coauthor2, coauthor3]);
             
             var basicMaps = {
