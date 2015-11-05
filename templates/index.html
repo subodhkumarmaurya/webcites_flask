@@ -8,10 +8,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     </head>
     <body>
+    <div id="gif"><img src="static/loading.gif"></div>
     <div id="map" style="width: 90%; height: 90%"></div>
-    <div id="gif" img src="static/loading.gif"></div>>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <script src="leaflet.js"></script>
+    <script src="Leaflet.Geodesic.js"></script>
     <script>
         var map = L.map('map').setView([0, 0], 2);
         
@@ -24,19 +26,24 @@
 
         url = '/locations/2015MNRAS.450..435S/' 
         alert('going ' + url)
-        $('#gif').toggle():
+        $('#gif').toggle();
         $.getJSON(url, function(data) {
-            $('#gif').toggle():
+            $('#gif').toggle();
 
             alert(JSON.stringify(data["coa_coords"]))
 
             var marker = L.marker(data["coords"]).addTo(map);
                 marker.bindPopup("This is the first author's institution").togglePopup();
+            var markerll = new L.LatLng(data["coords"]);
             
-            var coauthor1 = L.marker(data["coa_coords"][0]).togglePopup('This is a co-author institution.'),
+            var coauthor1 = L.marker(data["coa_coords"][0]).togglePopup('This is a co-author institution.')
+                coauthor1ll = new L.LatLng(data["coa_coords"][0])
                 coauthor2 = L.marker(data["coa_coords"][1]).togglePopup('This is a co-author instituion')
+                coauthor2ll = new L.LatLng(data["coa_coords"][1])
                 coauthor3 = L.marker(data["coa_coords"][2]).togglePopup('This is a co-author instituion')
+                coauthor3ll = new L.LatLng(data["coa_coords"][2])
             var coauthors = L.layerGroup([coauthor1, coauthor2, coauthor3]);
+            Geodesic.setLatLngs([[markerll, coauthor1ll, coauthor2ll, coauthor3ll]]);
             
             var basicMaps = {
                 "First Author Institute(s)":marker 
