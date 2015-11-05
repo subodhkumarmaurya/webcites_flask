@@ -10,4 +10,6 @@ To do:
 - error handling for first author institutions for which the geocode is not found. 
 
 
-![alt tag](http://dotastronomy.com/wp-content/uploads/2013/01/dotlogo_black.png)
+.. image:: http://dotastronomy.com/wp-content/uploads/2013/01/dotlogo_black.png
+   :width: 200 px
+
