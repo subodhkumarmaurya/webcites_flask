@@ -8,14 +8,14 @@ import numpy as np
 from ads_info import papersearch
 from geocode import geocode
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
 	return render_template('index.html')
 
-@app.route('/locations/<bibcode>/')
+@app.route('/locations/<bibcode>/', methods=["GET", "POST"])
 def hello_world(bibcode):
 	#bibcode = raw_input('What is the bibcode of the paper you would like to see the citation web for? :')
 	print("starting api-ing ads...")
