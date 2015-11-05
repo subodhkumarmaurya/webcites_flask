@@ -19,6 +19,7 @@ def geocode(address):
 		if result["resourceSets"][0]["estimatedTotal"] > 0:
 			return result["resourceSets"][0]["resources"][0]["geocodePoints"][0]["coordinates"]
 	except:
+		print('Location not found, sorry :(')
 		return None
-
+	print('Location not found')
 	return None
