@@ -12,6 +12,7 @@ from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
 
 import os
+import ads
 token = os.environ.get('ADS_DEV_KEY', None)
 if token:
 	ads.config.token = token
