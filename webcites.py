@@ -9,11 +9,20 @@ from ads_info import papersearch
 from geocode import geocode
 
 from flask import Flask, jsonify, render_template, request
+from werkzeug.contrib.cache import SimpleCache
+cache = SimpleCache()
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
 	return render_template('index.html')
+
+def get_geocode(inst):
+	rv = cache.get(inst)
+    if rv is None:
+        rv = geocode(inst)
+        cache.set(inst, rv)
+    return rv
 
 @app.route('/locations/<bibcode>/', methods=["GET", "POST"])
 def hello_world(bibcode):
@@ -23,26 +32,26 @@ def hello_world(bibcode):
 	print(paper_fai)
 	paper_fai_loc = []
 	for inst in paper_fai:
-		geo = geocode(inst)
+		geo = get_geocode(inst)
 		print(geo)
 		if geo:
 			paper_fai_loc.append(geo)
 	print('first author institutions', paper_fai_loc)
 	paper_ai_loc = []
 	for inst in paper_ai:
-		geo = geocode(inst)
+		geo = get_geocode(inst)
 		if geo:
 			paper_ai_loc.append(geo)
 	print('co-author institutions', paper_ai_loc)
 	cite_fai_loc = []
 	for inst in cite_fai:
-		geo = geocode(inst)
+		geo = get_geocode(inst)
 		if geo:
 			cite_fai_loc.append(geo)
 	print('citation first author institutions', cite_fai_loc)
 	cite_ai_loc =[]
 	for inst in cite_ai:
-		geo = geocode(inst)
+		geo = get_geocode(inst)
 		if geo:
 			cite_ai_loc.append(geo)
 	print('citation coauthor institutions', cite_ai_loc)
