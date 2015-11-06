@@ -19,10 +19,10 @@ def homepage():
 
 def get_geocode(inst):
 	rv = cache.get(inst)
-    if rv is None:
-        rv = geocode(inst)
-        cache.set(inst, rv)
-    return rv
+	if rv is None:
+		rv = geocode(inst)
+		cache.set(inst, rv)
+	return rv
 
 @app.route('/locations/<bibcode>/', methods=["GET", "POST"])
 def hello_world(bibcode):
