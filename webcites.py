@@ -12,8 +12,9 @@ from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
 
 import os
-if 'ADS_DEV_KEY' in os.environ:
-	ads.config.token = os.environ['ADS_DEV_KEY']
+token = os.environ.get('ADS_DEV_KEY', None)
+if token:
+	ads.config.token = token
 
 @app.route('/')
 def homepage():
