@@ -11,6 +11,10 @@ from geocode import geocode
 from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 
+import os
+if 'ADS_DEV_KEY' in os.environ:
+	ads.config.token = os.environ['ADS_DEV_KEY']
+
 @app.route('/')
 def homepage():
 	return render_template('index.html')
