@@ -1,6 +1,7 @@
 ads==0.11.1
 Flask==0.10.1
 funcsigs==0.4
+gunicorn==19.3.0
 httpretty==0.8.10
 itsdangerous==0.24
 Jinja2==2.8

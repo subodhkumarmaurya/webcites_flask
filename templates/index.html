@@ -15,7 +15,7 @@
                 overlayMaps.clearLayers();
                 basicMaps.clearLayers();
             } catch(e) {}
-            url = '/locations/'+$("#bibinput").val();
+            url = '/locations/'+$("#bibinput").val() + '/';
             $('#gif').toggle();
             $.getJSON(url, function(data) {
                 $('#gif').toggle();
