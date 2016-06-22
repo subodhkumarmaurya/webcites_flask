@@ -11,3 +11,4 @@ To do:
 
 <img src="http://dotastronomy.com/wp-content/uploads/2013/01/dotlogo_black.png" width="15%">
 
+![badge-img](https://img.shields.io/badge/Made%20at-%23dotastro-brightgreen.svg)
