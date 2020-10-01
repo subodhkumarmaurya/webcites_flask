@@ -1,1 +1,1 @@
-web: gunicorn webcites:app --log-file=-
+web: gunicorn websites:app --log-file=-
